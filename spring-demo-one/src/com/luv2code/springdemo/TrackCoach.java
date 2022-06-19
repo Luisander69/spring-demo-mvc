@@ -1,8 +1,12 @@
 package com.luv2code.springdemo;
 
 public class TrackCoach implements Coach {
-private FortuneService fortuneService;
-	
+	private FortuneService fortuneService;
+
+	public TrackCoach() {
+		super();
+	}
+
 	public TrackCoach(FortuneService theFortuneService) {
 		fortuneService = theFortuneService;
 	}
@@ -15,7 +19,7 @@ private FortuneService fortuneService;
 
 	@Override
 	public String getDailyFortune() {
-		return fortuneService.getFortune();
+		return "You can do it!" + fortuneService.getFortune();
 	}
 
 }
