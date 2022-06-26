@@ -6,8 +6,6 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
- <!-- Load sport.properties -->   
-<context:property-placeholder location="classpath:sport.properties"/>
     
 <!-- This introduction of Beans is  Inversion of Control-->
 <!-- When one Bean is connected to the other via id/ref it is Dependency Injection -->
@@ -17,15 +15,13 @@
 
 	</bean>
 <!-- Injection by constructor -->
-	<bean id="myCoach" class="com.luv2code.springdemo.FootballCoach">
+	<bean id="myCoach" 
+	class="com.luv2code.springdemo.TrackCoach"
+	init-method="doMyStartStuff"	
+	destroy-method="doMyDestroyStuff">
 		<constructor-arg ref="myFortune" />
 	</bean>
-<!-- Injection by setter -->
-	<bean id="cricketCoach" class="com.luv2code.springdemo.CricketCoach">
-		<property name="fortuneService" ref="myFortune"/>
-		<property name="emailAddress" value="${foo.email}"/>
-		<property name="team" value="${foo.team}"/>
-	</bean>	
+
 
 </beans>
 

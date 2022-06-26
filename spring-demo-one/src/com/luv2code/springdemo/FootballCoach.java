@@ -18,5 +18,9 @@ private FortuneService fortuneService;
 	public String getDailyFortune() {
 		return "You have it! " + fortuneService.getFortune();
 	}
+	
+	public String getRandomFortune() {
+		return "Your luck is: " + fortuneService.randomFortune();
+	}
 
 }
