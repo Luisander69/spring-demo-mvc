@@ -3,17 +3,22 @@ package com.luv2code.springdemo;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("singleton")
 public class TennisCoach implements Coach {
 	@Autowired
 	@Qualifier("randomFortune")
 	private FortuneService fortuneService;
 	public TennisCoach() {
-		System.out.println(">>> Inside the default constructor");
+		//System.out.println(">>> Inside the default constructor");
 	}
 	
 	/*
@@ -31,6 +36,14 @@ public class TennisCoach implements Coach {
 	public String getDailyFortune() throws FileNotFoundException, IOException {
 
 		return this.fortuneService.getFortune();
+	}
+	@PostConstruct
+	public void doMyStartupStuff() {
+		System.out.println(">>>TennisCoach: inside of doMyStartupStuff()");
+	}
+	@PreDestroy
+	public void doMyCleanupStuff() {
+		System.out.println(">>>TennisCoach: inside of doMyCleanupStuff()");
 	}
 
 }
