@@ -13,6 +13,8 @@ href="${pageContext.request.contextPath}/resources/css/styles2.css">
 <br><br>
 <h1>You come from ${student.country}</h1>
 <br><br>
+<h1>Your Language is ${student.favoriteLanguage}</h1>
+<br><br>
 <p>Congrats!!!</p>
 </body>
 </html>
