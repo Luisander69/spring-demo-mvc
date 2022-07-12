@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,13 @@ href="${pageContext.request.contextPath}/resources/css/styles2.css">
 <br><br>
 <h1>Your Language is ${student.favoriteLanguage}</h1>
 <br><br>
+<h1>Operating systems you are using:</h1>
+<ul>
+	<c:forEach var="temp" items="${student.operatingSystems}">
+	<li> ${temp} </li>
+	</c:forEach>
+</ul>
+
 <p>Congrats!!!</p>
 </body>
 </html>
